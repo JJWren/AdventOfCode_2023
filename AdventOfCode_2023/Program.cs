@@ -15,5 +15,6 @@ using AdventOfCode_2023.Day4;
 //Day3_1.Main();
 //Day3_2.Main();
 
-// Day 4
-Day4_1.Main();
+//// Day 4
+//Day4_1.Main();
+Day4_2.Main();
