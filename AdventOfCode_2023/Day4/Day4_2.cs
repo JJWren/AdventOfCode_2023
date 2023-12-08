@@ -46,13 +46,12 @@ namespace AdventOfCode_2023.Day4
             foreach(Card card in cards)
             {
                 Console.WriteLine($"\nStarting {card.ID}...");
-                count++;
+                count += card.InstancesOfCard;
 
                 if (card.TotalPoints > 0)
                 {
                     Console.WriteLine($"Current card instances: {card.InstancesOfCard}");
                     Console.WriteLine("Setting new instances of next card batch...");
-                    count += card.InstancesOfCard;
                     int totalWinningNumbers = card.GetWinningNumbersTotal();
                     IncreaseNextXSetOfCardsInstances(cards, card.ID, totalWinningNumbers);
                 }
