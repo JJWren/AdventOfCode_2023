@@ -52,15 +52,9 @@ namespace AdventOfCode_2023.Day4
                 {
                     Console.WriteLine($"Current card instances: {card.InstancesOfCard}");
                     Console.WriteLine("Setting new instances of next card batch...");
-                    int instances = card.InstancesOfCard;
-
-                    while (instances > 0)
-                    {
-                        count++;
-                        int totalWinningNumbers = card.GetWinningNumbersTotal();
-                        IncreaseNextXSetOfCardsInstances(cards, card.ID, totalWinningNumbers);
-                        instances--;
-                    }
+                    count += card.InstancesOfCard;
+                    int totalWinningNumbers = card.GetWinningNumbersTotal();
+                    IncreaseNextXSetOfCardsInstances(cards, card.ID, totalWinningNumbers);
                 }
             }
 
@@ -80,7 +74,7 @@ namespace AdventOfCode_2023.Day4
 
                 if (cards.FirstOrDefault(c => c.ID == potentialCardID) != null)
                 {
-                    cards.First(c => c.ID == potentialCardID).InstancesOfCard++;
+                    cards.First(c => c.ID == potentialCardID).InstancesOfCard += cards.First(c => c.ID == currentCardID).InstancesOfCard;
                 }
 
                 x--;
