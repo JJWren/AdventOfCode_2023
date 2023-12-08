@@ -46,14 +46,19 @@ namespace AdventOfCode_2023.Day4
             foreach(Card card in cards)
             {
                 Console.WriteLine($"\nStarting {card.ID}...");
+                Console.WriteLine($"Current card instances: {card.InstancesOfCard}");
                 count += card.InstancesOfCard;
+                Console.WriteLine($"Total scratchcard count is now: {count}");
 
                 if (card.TotalPoints > 0)
                 {
-                    Console.WriteLine($"Current card instances: {card.InstancesOfCard}");
                     Console.WriteLine("Setting new instances of next card batch...");
                     int totalWinningNumbers = card.GetWinningNumbersTotal();
                     IncreaseNextXSetOfCardsInstances(cards, card.ID, totalWinningNumbers);
+                }
+                else
+                {
+                    Console.WriteLine("No additional instances made from this card.");
                 }
             }
 
